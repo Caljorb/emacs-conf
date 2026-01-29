@@ -122,7 +122,10 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; https://github.com/djcb/dream-theme
-(load-theme 'dream)
+;; TODO: give terminal theme that doesn't have messed up colors
+;; xresources theme doesnt load colors properly but could work with mods
+(if (display-graphic-p)
+    (load-theme 'dream t))
 
 ;; ------------ DEFAULT MODES  ------------
 
@@ -176,6 +179,10 @@
 ;; TODO: look into ERC for irc
 
 ;; ---------------- MISC ----------------
+
+;; prevent dwm from resizing emacs window
+;; https://emacs.stackexchange.com/questions/47639/how-to-make-emacs-work-well-with-tiling-window-managers
+(setq frame-resize-pixelwise t)
 
 ;; remove tool/menu bars
 (push '(tool-bar-lines . 0) default-frame-alist)
@@ -328,17 +335,3 @@
 (require 'meow)
 (meow-setup)
 (meow-global-mode 1)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("2aaecdafbc3a84231b0fd826310d6eaee280e7c3d745e8e0bc8513d8aa9bf3d6"
-     default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
