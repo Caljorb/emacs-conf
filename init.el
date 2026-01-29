@@ -119,8 +119,10 @@
 
 ;; ---------------- THEME ----------------
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
 ;; https://github.com/djcb/dream-theme
-(load-file "~/.emacs.d/dream-theme/dream-theme.el")
+(load-theme 'dream)
 
 ;; ------------ DEFAULT MODES  ------------
 
@@ -326,3 +328,17 @@
 (require 'meow)
 (meow-setup)
 (meow-global-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("2aaecdafbc3a84231b0fd826310d6eaee280e7c3d745e8e0bc8513d8aa9bf3d6"
+     default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
