@@ -53,11 +53,11 @@
 ;; press tab to show menu
 (sup 'corfu-terminal)
 (unless (display-graphic-p) (corfu-terminal-mode +1))
-(setq corfu-auto t)
+;; (setq corfu-auto t)
 
 ;; manual autocompletion w/ orderless
-;; (require 'corfu)
-;; (keymap-set corfu-map "SPC" 'corfu-insert-separator)
+(require 'corfu)
+(keymap-set corfu-map "SPC" 'corfu-insert-separator)
 
 ;; autocomplete file paths
 (sup 'cape)
@@ -117,15 +117,21 @@
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
+;; required for f
+(sup 'dash)
+
+;; package for file handling
+(sup 'f)
+
 ;; ---------------- THEME ----------------
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; https://github.com/djcb/dream-theme
-;; TODO: give terminal theme that doesn't have messed up colors
-;; xresources theme doesnt load colors properly but could work with mods
+;; load theme consistent with pywal colors in terminal
 (if (display-graphic-p)
-    (load-theme 'dream t))
+    (load-theme 'dream t)
+  (load-theme 'xresources-wal t))
 
 ;; ------------ DEFAULT MODES  ------------
 
