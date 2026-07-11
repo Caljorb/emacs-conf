@@ -1,5 +1,23 @@
 ;;; init.el
 
+;; ------------ INITIALIZATION ------------
+
+;; prevent dwm from resizing emacs window
+;; https://emacs.stackexchange.com/questions/47639/how-to-make-emacs-work-well-with-tiling-window-managers
+(setq frame-resize-pixelwise t)
+
+;; remove tool/menu bars
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(menu-bar-lines . 0) default-frame-alist)
+(scroll-bar-mode -1)
+
+;; change font for gui mode
+(add-to-list 'default-frame-alist
+             '(font . "JetBrains Mono-22"))
+
+;; frame title -> expands to buffer name
+(setq-default frame-title-format '("emacs: %b"))
+
 ;; ----------- PACKAGE MANAGEMENT -----------
 
 ;; package manager
@@ -75,6 +93,9 @@
 ;; rust
 ;; C-c C-c C-k | rust-check | Compile using ‘cargo check‘.
 (sup 'rust-mode)
+
+;; go
+(sup 'go-mode)
 
 ;; color
 (sup 'rainbow-mode)
@@ -179,6 +200,7 @@
 (add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'java-mode-hook 'eglot-ensure)
 (add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; TODO: learn org-mode
 ;; TODO: look into EWW for emacs web browsing
@@ -186,21 +208,10 @@
 
 ;; ---------------- MISC ----------------
 
-;; prevent dwm from resizing emacs window
-;; https://emacs.stackexchange.com/questions/47639/how-to-make-emacs-work-well-with-tiling-window-managers
-(setq frame-resize-pixelwise t)
-
-;; remove tool/menu bars
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(menu-bar-lines . 0) default-frame-alist)
-(scroll-bar-mode -1)
-
-;; change font for gui mode
-(add-to-list 'default-frame-alist
-             '(font . "JetBrains Mono-22"))
-
-;; frame title -> expands to buffer name
-(setq-default frame-title-format '("emacs: %b"))
+;; add go to path
+;; need to run go install golang.org/x/tools/gopls@latest
+(setenv "PATH" (concat (getenv "PATH") ":" (expand-file-name "~/go/bin")))
+(setq exec-path (append exec-path (list (expand-file-name "~/go/bin"))))
 
 ;; allows moving windows with Shift-←
 (windmove-default-keybindings)
