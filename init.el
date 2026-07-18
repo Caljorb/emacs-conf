@@ -144,7 +144,10 @@
 ;; package for file handling
 (sup 'f)
 
-;; ---------------- THEME ----------------
+;; preview org doc
+(sup 'org-preview-html)
+
+ ;; ---------------- THEME ----------------
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
@@ -192,8 +195,7 @@
 (electric-pair-mode t)
 (setq electric-pair-pairs
       '((?\' . ?\')
-        (?\{ . ?\})
-        (?\< . ?\>)))
+        (?\{ . ?\})))
 
 ;; start eglot for these modes
 (add-hook 'rust-mode-hook 'eglot-ensure)
@@ -201,6 +203,7 @@
 (add-hook 'java-mode-hook 'eglot-ensure)
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'org-mode-hook 'eglot-ensure)
 
 ;; TODO: learn org-mode
 ;; TODO: look into EWW for emacs web browsing
