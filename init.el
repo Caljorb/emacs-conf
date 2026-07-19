@@ -264,6 +264,9 @@
 ;; -------------- FEATURES --------------
 
 ;; M-x ispell: spellcheck
+(setq ispell-program-name "hunspell")
+(setq ispell-local-dictionary "en_US")
+(setq ispell-alternate-dictionary "/usr/share/hunspell/en_US.dic")
 ;; Magit
 ;; C-h for keybind help
 
