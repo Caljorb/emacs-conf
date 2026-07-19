@@ -106,16 +106,20 @@
 (global-undo-tree-mode)
 (setq undo-tree-auto-save-history nil)
 
-;; TODO: setup dashboard w/ agenda
+;; dashboard
 (sup 'dashboard)
 (dashboard-setup-startup-hook)
-;; (setq dashboard-banner-logo-title "emacs")
+(setq recentf-exclude '("~/org/"))
+(setq dashboard-agenda-release-buffers t)
 (setq dashboard-startup-banner (expand-file-name "bunny.txt" user-emacs-directory))
 (setq dashboard-center-content t)
-;; (setq dashboard-vertically-center-content t)
-(setq dashboard-items '((recents . 5)))
+(setq dashboard-show-shortcuts nil)
 (setq initial-buffer-choice (get-buffer "*dashboard*"))
-(setq dashboard-item-names '(("Recent Files:" . "Recent:")))
+(setq dashboard-items '((recents  . 5)
+                        (agenda . 5)))
+(setq dashboard-agenda-sort-strategy '(time-up))
+(setq dashboard-item-names '(("Recent Files:" . "Recent:")
+                             ("Agenda for the coming week:" . "Agenda:")))
 (setq dashboard-set-footer nil)
 
 ;; description of commands
