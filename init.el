@@ -6,11 +6,6 @@
 ;; https://emacs.stackexchange.com/questions/47639/how-to-make-emacs-work-well-with-tiling-window-managers
 (setq frame-resize-pixelwise t)
 
-;; remove tool/menu bars
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(menu-bar-lines . 0) default-frame-alist)
-(scroll-bar-mode -1)
-
 ;; change font for gui mode
 (add-to-list 'default-frame-alist
              '(font . "JetBrains Mono-22"))
@@ -109,7 +104,8 @@
 ;; dashboard
 (sup 'dashboard)
 (dashboard-setup-startup-hook)
-(setq dashboard-agenda-release-buffers t)
+;; this slows boot speed
+;; (setq dashboard-agenda-release-buffers t)
 (setq dashboard-agenda-prefix-format " %i %s ")
 ;; match font for agenda tags (widgets)
 (set-face-attribute 'dashboard-items-face nil :family "JetBrains Mono" :height 220)
