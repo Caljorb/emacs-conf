@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*- 
 ;;; init.el
 
 ;; ------------ INITIALIZATION ------------
@@ -104,21 +105,19 @@
 ;; dashboard
 (sup 'dashboard)
 (dashboard-setup-startup-hook)
-;; this slows boot speed
-;; (setq dashboard-agenda-release-buffers t)
-(setq dashboard-agenda-prefix-format " %i %s ")
+;; (setq dashboard-agenda-prefix-format " %i %s ")
 ;; match font for agenda tags (widgets)
-(set-face-attribute 'dashboard-items-face nil :family "JetBrains Mono" :height 220)
+;; (set-face-attribute 'dashboard-items-face nil :family "JetBrains Mono" :height 220)
 
 (setq dashboard-startup-banner (expand-file-name "bunny.txt" user-emacs-directory))
 (setq dashboard-center-content t)
 (setq dashboard-show-shortcuts nil)
 (setq initial-buffer-choice (get-buffer "*dashboard*"))
-(setq dashboard-items '((recents  . 5)
-                        (agenda . 5)))
+(setq dashboard-items '((recents  . 5)))
+                        ;; (agenda . 5)))
 (setq dashboard-agenda-sort-strategy '(time-up))
-(setq dashboard-item-names '(("Recent Files:" . "Recent:")
-                             ("Agenda for the coming week:" . "Agenda:")))
+(setq dashboard-item-names '(("Recent Files:" . "Recent:")))
+                             ;; ("Agenda for the coming week:" . "Agenda:")))
 (setq dashboard-set-footer nil)
 
 ;; description of commands
@@ -361,12 +360,13 @@
 (require 'meow)
 (meow-setup)
 (meow-global-mode 1)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files '("/home/alfresco/org/blank.org")))
+ '(org-agenda-files '("~/org/ta-3235.org")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,3 +1,5 @@
+;; -*- lexical-binding: nil; -*- 
+
 ;; change garbage collector defaults
 (setq gc-cons-threshold 63000000
       gc-cons-percentage 0.6)
